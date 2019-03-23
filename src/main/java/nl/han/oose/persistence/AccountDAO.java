@@ -32,4 +32,23 @@ public class AccountDAO {
         }
         return null;
     }
+
+    public String getUsernameThroughToken(String token) {
+        try (
+                Connection connection = connectionFactory.getConnection();
+                PreparedStatement statement = connection.prepareStatement(
+                        "SELECT username FROM accounttokens WHERE token = ?"
+                )
+        ) {
+            statement.setString(1, token);
+            ResultSet resultSet = statement.executeQuery();
+
+            while(resultSet.next()){
+                return resultSet.getString("username");
+            }
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

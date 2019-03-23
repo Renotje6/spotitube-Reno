@@ -4,8 +4,8 @@ public class Video extends Track{
     private String publicationDate;
     private String description;
 
-    public Video(int id, String performer, String title, String url, int duration, boolean offlineAvailable, String publicationDate, String description) {
-        super(id, performer, title, url, duration, offlineAvailable);
+    public Video(int id, String performer, String title, String url, int duration, int playcount, boolean offlineAvailable, String publicationDate, String description) {
+        super(id, performer, title, url, duration, playcount, offlineAvailable);
         this.publicationDate = publicationDate;
         this.description = description;
     }

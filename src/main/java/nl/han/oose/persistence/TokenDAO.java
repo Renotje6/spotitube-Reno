@@ -62,19 +62,19 @@ public class TokenDAO {
             Date expireTime = new SimpleDateFormat(dateFormat).parse(expiryDateString);
             String currentTime = new SimpleDateFormat(dateFormat).format(Calendar.getInstance().getTime());
             Date timeStamp = new SimpleDateFormat(dateFormat).parse(currentTime);
-            tokenExpired = expireTime.after(timeStamp);
+            tokenExpired = timeStamp.after(expireTime);
         } catch (SQLException | ParseException e){
             e.printStackTrace();
         }
         return tokenExpired;
     }
 
-    public void deleteToken(String username){
+    public void deleteToken(String token){
         try(
                 Connection connection = connectionFactory.getConnection();
-                PreparedStatement statement = connection.prepareStatement("DELETE FROM accounttokens WHERE username = ?")
+                PreparedStatement statement = connection.prepareStatement("DELETE FROM accounttokens WHERE token = ?")
                 ){
-            statement.setString(1, username);
+            statement.setString(1, token);
             statement.execute();
         } catch (SQLException e){
             e.printStackTrace();

@@ -12,12 +12,13 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.inject.Inject;
 
-@Path("/login")
+@Path("/")
 public class LoginController {
 
     @Inject
     private LoginServiceImpl loginService;
 
+    @Path("login")
     @POST
     @Consumes( MediaType.APPLICATION_JSON )
     @Produces( MediaType.APPLICATION_JSON )
@@ -25,6 +26,7 @@ public class LoginController {
         try {
             return Response.ok().entity(loginService.login(account)).build();
         } catch (LoginException e) {
+            e.printStackTrace();
             return Response.status(Response.Status.UNAUTHORIZED).build();
         }
     }

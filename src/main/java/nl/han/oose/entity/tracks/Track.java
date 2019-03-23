@@ -6,16 +6,19 @@ public class Track {
     private String title;
     private String url;
     private int duration;
-    private boolean offlineAvailable;
 
+    private int playcount;
+
+    private boolean offlineAvailable;
     public Track(){}
 
-    public Track(int id, String performer, String title, String url, int duration, boolean offlineAvailable) {
+    public Track(int id, String performer, String title, String url, int duration, int playcount, boolean offlineAvailable) {
         this.id = id;
         this.performer = performer;
         this.title = title;
         this.url = url;
         this.duration = duration;
+        this.playcount = playcount;
         this.offlineAvailable = offlineAvailable;
     }
 
@@ -65,5 +68,13 @@ public class Track {
 
     public void setOfflineAvailable(boolean offlineAvailable) {
         this.offlineAvailable = offlineAvailable;
+    }
+
+    public int getPlaycount() {
+        return playcount;
+    }
+
+    public void setPlaycount(int playcount) {
+        this.playcount = playcount;
     }
 }
