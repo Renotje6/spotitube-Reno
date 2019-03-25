@@ -1,7 +1,7 @@
 package nl.han.oose.controller;
 
 import nl.han.oose.entity.account.Account;
-import nl.han.oose.service.LoginServiceImpl;
+import nl.han.oose.service.loginService.LoginServiceImpl;
 
 import javax.security.auth.login.LoginException;
 import javax.ws.rs.Consumes;

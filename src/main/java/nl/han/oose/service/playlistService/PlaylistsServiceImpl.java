@@ -1,4 +1,4 @@
-package nl.han.oose.service;
+package nl.han.oose.service.playlistService;
 
 import nl.han.oose.entity.exceptions.TokenExpiredException;
 import nl.han.oose.entity.playlists.Playlist;

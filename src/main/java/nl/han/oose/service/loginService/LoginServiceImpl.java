@@ -1,4 +1,4 @@
-package nl.han.oose.service;
+package nl.han.oose.service.loginService;
 
 import nl.han.oose.entity.account.Account;
 import nl.han.oose.entity.account.AccountToken;

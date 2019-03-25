@@ -15,7 +15,7 @@ import java.util.List;
 @Default
 public class PlaylistsDAO {
 
-    ConnectionFactory connectionFactory;
+    private ConnectionFactory connectionFactory;
 
     public PlaylistsDAO() {
         connectionFactory = new ConnectionFactory();
@@ -43,7 +43,7 @@ public class PlaylistsDAO {
         return new Playlists(playlistList, playlistTotalLength);
     }
 
-    public int getTotalLengthOfPlaylist(int id) {
+    private int getTotalLengthOfPlaylist(int id) {
         int length = 0;
         try (
                 Connection connection = connectionFactory.getConnection();
@@ -93,9 +93,9 @@ public class PlaylistsDAO {
                 Connection connection = connectionFactory.getConnection();
                 PreparedStatement statement = connection.prepareStatement("UPDATE playlist SET name = ? WHERE playlistId = ?")
         ) {
-            System.out.println(playlist.getName());
             statement.setString(1, playlist.getName());
-            statement.setInt(1, playlistId);
+            statement.setInt(2, playlistId);
+            statement.execute();
         } catch (SQLException e) {
             e.printStackTrace();
         }
