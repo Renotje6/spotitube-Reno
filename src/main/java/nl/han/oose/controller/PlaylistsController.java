@@ -11,6 +11,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+
 @Path( "/playlists" )
 public class PlaylistsController {
 
@@ -96,7 +97,7 @@ public class PlaylistsController {
     @DELETE
     @Produces( MediaType.APPLICATION_JSON )
     public Response deleteTrackFromPlaylist(@PathParam( "playlistId" ) int playlistId, @PathParam( "trackId" ) int trackId, @QueryParam( "token" ) String token) {
-        if (token.isEmpty() || playlistId <= 0) {
+        if (token.isEmpty() || playlistId <= 0 || trackId <= 0) {
             return Response.status(Response.Status.BAD_REQUEST).build();
         }
         try {
