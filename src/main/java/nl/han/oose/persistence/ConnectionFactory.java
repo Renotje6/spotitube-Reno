@@ -1,5 +1,6 @@
 package nl.han.oose.persistence;
 
+import javax.enterprise.inject.Default;
 import javax.persistence.PersistenceException;
 import java.io.IOException;
 import java.sql.Connection;
@@ -7,6 +8,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
+@Default
 class ConnectionFactory {
 
     private Properties properties;

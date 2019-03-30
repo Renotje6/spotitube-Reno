@@ -2,17 +2,15 @@ package nl.han.oose.persistence;
 
 import nl.han.oose.entity.account.Account;
 
+import javax.inject.Inject;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class AccountDAO {
+    @Inject
     private ConnectionFactory connectionFactory;
-
-    public AccountDAO() {
-        connectionFactory = new ConnectionFactory();
-    }
 
     public Account getUserAccount(String username) {
         try (

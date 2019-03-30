@@ -5,6 +5,7 @@ import nl.han.oose.entity.playlists.Playlists;
 import nl.han.oose.entity.tracks.Track;
 
 import javax.enterprise.inject.Default;
+import javax.inject.Inject;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,11 +16,8 @@ import java.util.List;
 @Default
 public class PlaylistsDAO {
 
+    @Inject
     private ConnectionFactory connectionFactory;
-
-    public PlaylistsDAO() {
-        connectionFactory = new ConnectionFactory();
-    }
 
     public Playlists getAllPlaylists(String username) {
         List<Playlist> playlistList = new ArrayList<>();

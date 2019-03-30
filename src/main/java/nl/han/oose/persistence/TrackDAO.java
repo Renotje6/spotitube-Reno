@@ -6,6 +6,7 @@ import nl.han.oose.entity.tracks.Tracks;
 import nl.han.oose.entity.tracks.Video;
 
 import javax.enterprise.inject.Default;
+import javax.inject.Inject;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,11 +16,8 @@ import java.util.List;
 
 @Default
 public class TrackDAO {
+    @Inject
     ConnectionFactory connectionFactory;
-
-    public TrackDAO() {
-        connectionFactory = new ConnectionFactory();
-    }
 
     public Tracks getTracksInPlaylist(int playlistId, boolean inPlaylist){
         List<Track> tracks = new ArrayList<>();
